@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(Animator))]
-public class PlayerAnimHandler : MonoBehaviour {
+public class PlayerAnimationHandler : MonoBehaviour {
     [SerializeField] MovementController movementController;
 
     private Animator animator;

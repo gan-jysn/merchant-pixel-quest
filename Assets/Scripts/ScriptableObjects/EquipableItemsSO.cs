@@ -8,8 +8,7 @@ using UnityEngine.U2D.Animation;
 public class EquipableItemSO : ItemSO, IEquipable {
     public EquipType EquipType;
     public Sprite SpriteSheet;
-    public GameObject ItemPrefab;
-    public SpriteLibraryAsset itemAsset;
+    public RuntimeAnimatorController AnimController;
 
     public void Equip() {
 

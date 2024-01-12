@@ -3,7 +3,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Audio;
-using Sirenix.OdinInspector;
+#pragma warning disable CS0105
+using Sirenix.OdinInspector; 
 
 public class SoundManager : SingletonPersistent<SoundManager> {
     private const string VOLUME_SFX = "volume_sfx";
@@ -19,10 +20,11 @@ public class SoundManager : SingletonPersistent<SoundManager> {
     [SerializeField, FoldoutGroup("Audio Clips", Expanded = false)] AudioClip buttonSFX;
     [SerializeField, FoldoutGroup("Audio Clips", Expanded = false)] AudioClip titleBGM;
     [SerializeField, FoldoutGroup("Audio Clips", Expanded = false)] AudioClip gameBGM;
+    
+    [SerializeField, HideInInspector] List<GameObject> sourcePool = new List<GameObject>();
 
     private float volumeSFX;
     private float volumeMusic;
-    private List<GameObject> sourcePool = new List<GameObject>();
 
     public bool IsMusicEnabled { get { return isMusicEnabled; } set { isMusicEnabled = value; } }
     public bool IsSFXEnabled { get { return isSFXEnabled; } set { isSFXEnabled = value; } }

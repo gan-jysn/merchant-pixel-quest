@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+#pragma warning disable CS0414
 using Sirenix.OdinInspector;
 
 public class GameManager : Singleton<GameManager> {

@@ -1330,6 +1330,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dd71aecc1c7743e44bddcf68825086ce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &1664229372 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5221612559541019835, guid: 271a50588b290da499a7b987a0b83921, type: 3}
+  m_PrefabInstance: {fileID: 5012737733237240427}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1913599093
 GameObject:
   m_ObjectHideFlags: 0
@@ -1875,6 +1880,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 5012737732232226256, guid: 271a50588b290da499a7b987a0b83921, type: 3}
+      propertyPath: sourcePool.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5012737732232226256, guid: 271a50588b290da499a7b987a0b83921, type: 3}
+      propertyPath: sourcePool.Array.data[0]
+      value: 
+      objectReference: {fileID: 1664229372}
     - target: {fileID: 5012737732232226257, guid: 271a50588b290da499a7b987a0b83921, type: 3}
       propertyPath: m_RootOrder
       value: 4

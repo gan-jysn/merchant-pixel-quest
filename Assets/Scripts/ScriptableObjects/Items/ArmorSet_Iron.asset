@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e2181738e06abc847969c1593eb7839f, type: 3}
+  m_Name: ArmorSet_Iron
+  m_EditorClassIdentifier: 
+  ItemID: 0
+  ItemName: Iron Armor Set
+  Description: A set of armor made out of Iron.
+  Value: 100
+  Type: 0
+  Icon: {fileID: -1280368107, guid: 236a07dda91131c4990494c1c821b051, type: 3}
+  EquipType: 1
+  SpriteSheet: {fileID: -1788668496, guid: 236a07dda91131c4990494c1c821b051, type: 3}
+  AnimController: {fileID: 9100000, guid: cde5e4faf0dcea64492fdb72f1667037, type: 2}

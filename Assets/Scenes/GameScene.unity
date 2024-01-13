@@ -1095,6 +1095,7 @@ GameObject:
   - component: {fileID: 1006161394}
   - component: {fileID: 1006161395}
   - component: {fileID: 1006161396}
+  - component: {fileID: 1006161397}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -1171,6 +1172,22 @@ MonoBehaviour:
   isMovementEnabled: 1
   defaultMovementSpeed: 5
   runningMovementSpeed: 7.5
+--- !u!114 &1006161397
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1006161392}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b63853453afbf0f418504af21424f379, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inventoryHandler: {fileID: 0}
+  clothesAnim: {fileID: 1417318817}
+  currentHat: {fileID: 0}
+  currentClothes: {fileID: 0}
 --- !u!1 &1033159934
 GameObject:
   m_ObjectHideFlags: 0
@@ -1563,6 +1580,7 @@ GameObject:
   - component: {fileID: 1417318815}
   - component: {fileID: 1417318817}
   - component: {fileID: 1417318818}
+  - component: {fileID: 1417318819}
   m_Layer: 0
   m_Name: Model_Clothing
   m_TagString: Untagged
@@ -1670,6 +1688,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   movementController: {fileID: 1006161396}
+--- !u!114 &1417318819
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1417318813}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b63853453afbf0f418504af21424f379, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inventoryHandler: {fileID: 0}
+  clothesAnim: {fileID: 1417318817}
+  currentHat: {fileID: 0}
+  currentClothes: {fileID: 11400000, guid: 0dff5cb0cf8c4d54eb1abcf183181be3, type: 2}
 --- !u!1 &1629120590
 GameObject:
   m_ObjectHideFlags: 0
@@ -1815,6 +1849,14 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 52574530}
+    - target: {fileID: 5966132117664168560, guid: 4ed3f07461d269e4cba5f42dee0cea0a, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5966132117664168560, guid: 4ed3f07461d269e4cba5f42dee0cea0a, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5966132117664168567, guid: 4ed3f07461d269e4cba5f42dee0cea0a, type: 3}
       propertyPath: m_IsActive
       value: 0

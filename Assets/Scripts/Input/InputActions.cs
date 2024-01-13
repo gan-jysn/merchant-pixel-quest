@@ -229,6 +229,45 @@ public partial class @InputActions : IInputActionCollection2, IDisposable
                     ""isPartOfComposite"": false
                 }
             ]
+        },
+        {
+            ""name"": ""Dialogue"",
+            ""id"": ""f3d39e8e-03f8-4e49-afc9-94ba34ae3e30"",
+            ""actions"": [
+                {
+                    ""name"": ""Proceed"",
+                    ""type"": ""Button"",
+                    ""id"": ""4b8e7080-c710-4531-a412-3283466a817e"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": """",
+                    ""id"": ""22657fa7-0567-4194-b9fd-18d81fbf144e"",
+                    ""path"": ""<Mouse>/leftButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Proceed"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""78b6fe90-a900-4ae7-9a53-7ddaeb4052b8"",
+                    ""path"": ""<Keyboard>/space"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Proceed"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                }
+            ]
         }
     ],
     ""controlSchemes"": [
@@ -252,6 +291,9 @@ public partial class @InputActions : IInputActionCollection2, IDisposable
         m_Game_Run = m_Game.FindAction("Run", throwIfNotFound: true);
         m_Game_Attack = m_Game.FindAction("Attack", throwIfNotFound: true);
         m_Game_Inventory = m_Game.FindAction("Inventory", throwIfNotFound: true);
+        // Dialogue
+        m_Dialogue = asset.FindActionMap("Dialogue", throwIfNotFound: true);
+        m_Dialogue_Proceed = m_Dialogue.FindAction("Proceed", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -372,6 +414,39 @@ public partial class @InputActions : IInputActionCollection2, IDisposable
         }
     }
     public GameActions @Game => new GameActions(this);
+
+    // Dialogue
+    private readonly InputActionMap m_Dialogue;
+    private IDialogueActions m_DialogueActionsCallbackInterface;
+    private readonly InputAction m_Dialogue_Proceed;
+    public struct DialogueActions
+    {
+        private @InputActions m_Wrapper;
+        public DialogueActions(@InputActions wrapper) { m_Wrapper = wrapper; }
+        public InputAction @Proceed => m_Wrapper.m_Dialogue_Proceed;
+        public InputActionMap Get() { return m_Wrapper.m_Dialogue; }
+        public void Enable() { Get().Enable(); }
+        public void Disable() { Get().Disable(); }
+        public bool enabled => Get().enabled;
+        public static implicit operator InputActionMap(DialogueActions set) { return set.Get(); }
+        public void SetCallbacks(IDialogueActions instance)
+        {
+            if (m_Wrapper.m_DialogueActionsCallbackInterface != null)
+            {
+                @Proceed.started -= m_Wrapper.m_DialogueActionsCallbackInterface.OnProceed;
+                @Proceed.performed -= m_Wrapper.m_DialogueActionsCallbackInterface.OnProceed;
+                @Proceed.canceled -= m_Wrapper.m_DialogueActionsCallbackInterface.OnProceed;
+            }
+            m_Wrapper.m_DialogueActionsCallbackInterface = instance;
+            if (instance != null)
+            {
+                @Proceed.started += instance.OnProceed;
+                @Proceed.performed += instance.OnProceed;
+                @Proceed.canceled += instance.OnProceed;
+            }
+        }
+    }
+    public DialogueActions @Dialogue => new DialogueActions(this);
     private int m_KeyboardSchemeIndex = -1;
     public InputControlScheme KeyboardScheme
     {
@@ -388,5 +463,9 @@ public partial class @InputActions : IInputActionCollection2, IDisposable
         void OnRun(InputAction.CallbackContext context);
         void OnAttack(InputAction.CallbackContext context);
         void OnInventory(InputAction.CallbackContext context);
+    }
+    public interface IDialogueActions
+    {
+        void OnProceed(InputAction.CallbackContext context);
     }
 }

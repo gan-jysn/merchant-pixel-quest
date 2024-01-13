@@ -3,30 +3,22 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(Collider2D))]
-public class Sign_Trigger : MonoBehaviour, IInteractable {
-    [SerializeField] SignSO signData;
-    [SerializeField] bool isInteractable = false;
-    
-    public void Interact() {
-        if (!isInteractable)
-            return;
+public class Sign_Trigger : MonoBehaviour {
+    Sign sign;
 
-        //Call DialogueManager
-        if (signData == null)
-            return;
-
-
+    private void Start() {
+        sign = GetComponentInParent<Sign>();
     }
 
     private void OnTriggerEnter2D(Collider2D collision) {
         if (collision != null && collision.CompareTag("Player")) {
-            isInteractable = true;
+            sign.IsInteractable = true;
         }
     }
 
     private void OnTriggerExit2D(Collider2D collision) {
         if (collision != null && collision.CompareTag("Player")) {
-            isInteractable = false;
+            sign.IsInteractable = false;
         }
     }
 }

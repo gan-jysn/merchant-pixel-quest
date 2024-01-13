@@ -17,6 +17,7 @@ public class InputManager : Singleton<InputManager> {
     public event Action OnShiftStarted;
     public event Action OnShiftEnded;
     public event Action OnInventoryPressed;
+    public event Action OnDialogueProceed;
     #endregion
 
     public void Awake() {
@@ -41,6 +42,8 @@ public class InputManager : Singleton<InputManager> {
         inputActions.Game.Run.started += OnShiftStart;
         inputActions.Game.Run.canceled += OnShiftEnd;
         inputActions.Game.Inventory.performed += OnInventoryPerformed;
+
+        inputActions.Dialogue.Proceed.performed += OnDialoguePerformed;
     }
 
     private void RemoveEventCallbacks() {
@@ -52,6 +55,8 @@ public class InputManager : Singleton<InputManager> {
         inputActions.Game.Run.started -= OnShiftStart;
         inputActions.Game.Run.canceled -= OnShiftEnd;
         inputActions.Game.Inventory.performed -= OnInventoryPerformed;
+
+        inputActions.Dialogue.Proceed.performed -= OnDialoguePerformed;
     }
 
     private void OnEnable() {
@@ -93,5 +98,9 @@ public class InputManager : Singleton<InputManager> {
 
     private void OnInventoryPerformed(InputAction.CallbackContext value) {
         OnInventoryPressed?.Invoke();
+    }
+
+    private void OnDialoguePerformed(InputAction.CallbackContext value) {
+        OnDialogueProceed?.Invoke();
     }
 }

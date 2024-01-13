@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 4386492957211504590}
   - component: {fileID: 4386492957211504577}
   - component: {fileID: 4386492957211504576}
+  - component: {fileID: 8295353291645714550}
   m_Layer: 0
   m_Name: Sign
   m_TagString: Untagged
@@ -112,6 +113,20 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &8295353291645714550
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4386492957211504591}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2f6ede190a251ac4ca5546fd8c919a38, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  signData: {fileID: 0}
+  isInteractable: 0
 --- !u!1 &4386492957616381037
 GameObject:
   m_ObjectHideFlags: 0
@@ -183,5 +198,3 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 19593a27fa20b4d4e806d725638fa043, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  signData: {fileID: 0}
-  isInteractable: 0

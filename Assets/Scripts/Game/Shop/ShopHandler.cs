@@ -7,7 +7,13 @@ public class ShopHandler : MonoBehaviour {
     [SerializeField] InventorySO shopInventory;
     [SerializeField] InventoryHandler inventoryHandler;
     [SerializeField] UI_Shop shopUI;
-    [SerializeField] ShopTrigger trigger;
+    [SerializeField] Shopkeeper shopKeeper;
+
+    [Header("Position References")]
+    [SerializeField] ShopTrigger interiorTrigger;
+    [SerializeField] ShopTrigger exteriorTrigger;
+    [SerializeField] Transform shopInteriorSpawn;
+    [SerializeField] Transform shopExteriorSpawn;
 
     public int PlayerCurrency { get { return inventoryHandler.Currency; } }
     public int PlayerInventorySize { get { return inventoryHandler.Items.Count; } }
@@ -23,10 +29,6 @@ public class ShopHandler : MonoBehaviour {
     #endregion
 
     private void Start() {
-        if (trigger == null) {
-            trigger = FindObjectOfType<ShopTrigger>();
-        }
-
         AddEventCallbacks();
     }
 
@@ -35,14 +37,14 @@ public class ShopHandler : MonoBehaviour {
     }
 
     private void AddEventCallbacks() {
-        if (trigger != null) {
-            trigger.OnInteract += OpenShop;
+        if (shopKeeper != null) {
+            shopKeeper.OnInteract += OpenShop;
         }
     }
 
     private void RemoveEventCallbacks() {
-        if (trigger != null) {
-            trigger.OnInteract -= OpenShop;
+        if (shopKeeper != null) {
+            shopKeeper.OnInteract -= OpenShop;
         }
     }
 

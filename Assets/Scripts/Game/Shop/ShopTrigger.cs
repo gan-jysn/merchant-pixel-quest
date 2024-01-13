@@ -3,11 +3,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ShopTrigger : MonoBehaviour, IInteractable {
+[RequireComponent(typeof(Collider2D))]
+public class ShopTrigger : MonoBehaviour {
 
-    public event Action OnInteract;
+    public event Action OnPlayerEntered;
 
-    public void Interact() {
-        OnInteract?.Invoke();
+    private void OnTriggerEnter2D(Collider2D collision) {
+        if (CompareTag("Player")) {
+            OnPlayerEntered?.Invoke();
+        }
     }
 }

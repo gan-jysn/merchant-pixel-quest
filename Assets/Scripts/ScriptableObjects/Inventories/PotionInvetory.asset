@@ -10,8 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e38e8678c0be297488bd8d648d8fba4c, type: 3}
-  m_Name: ShopInventory
+  m_Name: PotionInvetory
   m_EditorClassIdentifier: 
-  currency: 4000
-  Items:
-  - {fileID: 11400000, guid: 0dff5cb0cf8c4d54eb1abcf183181be3, type: 2}
+  currency: 2000
+  Items: []

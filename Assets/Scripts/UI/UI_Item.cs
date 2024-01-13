@@ -12,7 +12,6 @@ public class UI_Item : MonoBehaviour, IPointerClickHandler {
     [SerializeField] TextMeshProUGUI quantityTxt;
 
     public ItemSO ItemData { get { return itemData; } }
-
     #region Events
     public event Action<int, ItemType, string, string> OnItemSelected;
     #endregion

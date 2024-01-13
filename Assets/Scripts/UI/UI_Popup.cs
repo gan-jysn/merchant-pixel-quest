@@ -13,6 +13,8 @@ public class UI_Popup : MonoBehaviour {
 
     public float DelayTime { get { return delayTime; } }
 
+    public bool IsPanelActive { get { return popupPanel.gameObject.activeSelf; } }
+
     #region Events
     public event Action OnPopupOpened;
     #endregion

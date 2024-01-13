@@ -36,8 +36,8 @@ public class UI_Settings : UI_Popup {
     }
 
     private void AdjustAudioSettings() {
-        toggleMusic.isOn = SoundManager.Instance.IsMusicEnabled;
-        toggleSFX.isOn = SoundManager.Instance.IsSFXEnabled;
+        toggleMusic.isOn = !SoundManager.Instance.IsMusicEnabled;
+        toggleSFX.isOn = !SoundManager.Instance.IsSFXEnabled;
         audioSlider.value = PlayerPrefs.GetFloat(VOLUME);
     }
 

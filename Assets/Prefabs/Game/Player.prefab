@@ -13,6 +13,8 @@ GameObject:
   - component: {fileID: 1104909620349190259}
   - component: {fileID: 1104909620349190260}
   - component: {fileID: 1104909620349190261}
+  - component: {fileID: 7768484839601538035}
+  - component: {fileID: 2754377393314790170}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -105,6 +107,35 @@ MonoBehaviour:
   clothesAnim: {fileID: 1104909622035160097}
   currentHat: {fileID: 0}
   currentClothes: {fileID: 11400000, guid: 0dff5cb0cf8c4d54eb1abcf183181be3, type: 2}
+--- !u!114 &7768484839601538035
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1104909620349190256}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bffa302653bc9c14d91b636306746a67, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inventory: {fileID: 11400000, guid: 18c456476142c9d42bff160ce512c60b, type: 2}
+  equipmentHandler: {fileID: 1104909620349190261}
+  inventoryUI: {fileID: 0}
+--- !u!114 &2754377393314790170
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1104909620349190256}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a90f31e3abdf9de42ad655c9c9a796da, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  raycastDistance: 40
+  movementController: {fileID: 1104909620349190260}
 --- !u!1 &1104909621782965930
 GameObject:
   m_ObjectHideFlags: 0

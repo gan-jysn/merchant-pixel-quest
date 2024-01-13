@@ -62,6 +62,15 @@ public partial class @InputActions : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Inventory"",
+                    ""type"": ""Button"",
+                    ""id"": ""038c4ca1-7efd-4689-9c6c-1a25e1e04fc5"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -207,6 +216,17 @@ public partial class @InputActions : IInputActionCollection2, IDisposable
                     ""action"": ""Attack"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""4ee01e08-3122-445c-ab68-9ee672b2fc65"",
+                    ""path"": ""<Keyboard>/i"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Inventory"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -231,6 +251,7 @@ public partial class @InputActions : IInputActionCollection2, IDisposable
         m_Game_Interact = m_Game.FindAction("Interact", throwIfNotFound: true);
         m_Game_Run = m_Game.FindAction("Run", throwIfNotFound: true);
         m_Game_Attack = m_Game.FindAction("Attack", throwIfNotFound: true);
+        m_Game_Inventory = m_Game.FindAction("Inventory", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -294,6 +315,7 @@ public partial class @InputActions : IInputActionCollection2, IDisposable
     private readonly InputAction m_Game_Interact;
     private readonly InputAction m_Game_Run;
     private readonly InputAction m_Game_Attack;
+    private readonly InputAction m_Game_Inventory;
     public struct GameActions
     {
         private @InputActions m_Wrapper;
@@ -302,6 +324,7 @@ public partial class @InputActions : IInputActionCollection2, IDisposable
         public InputAction @Interact => m_Wrapper.m_Game_Interact;
         public InputAction @Run => m_Wrapper.m_Game_Run;
         public InputAction @Attack => m_Wrapper.m_Game_Attack;
+        public InputAction @Inventory => m_Wrapper.m_Game_Inventory;
         public InputActionMap Get() { return m_Wrapper.m_Game; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -323,6 +346,9 @@ public partial class @InputActions : IInputActionCollection2, IDisposable
                 @Attack.started -= m_Wrapper.m_GameActionsCallbackInterface.OnAttack;
                 @Attack.performed -= m_Wrapper.m_GameActionsCallbackInterface.OnAttack;
                 @Attack.canceled -= m_Wrapper.m_GameActionsCallbackInterface.OnAttack;
+                @Inventory.started -= m_Wrapper.m_GameActionsCallbackInterface.OnInventory;
+                @Inventory.performed -= m_Wrapper.m_GameActionsCallbackInterface.OnInventory;
+                @Inventory.canceled -= m_Wrapper.m_GameActionsCallbackInterface.OnInventory;
             }
             m_Wrapper.m_GameActionsCallbackInterface = instance;
             if (instance != null)
@@ -339,6 +365,9 @@ public partial class @InputActions : IInputActionCollection2, IDisposable
                 @Attack.started += instance.OnAttack;
                 @Attack.performed += instance.OnAttack;
                 @Attack.canceled += instance.OnAttack;
+                @Inventory.started += instance.OnInventory;
+                @Inventory.performed += instance.OnInventory;
+                @Inventory.canceled += instance.OnInventory;
             }
         }
     }
@@ -358,5 +387,6 @@ public partial class @InputActions : IInputActionCollection2, IDisposable
         void OnInteract(InputAction.CallbackContext context);
         void OnRun(InputAction.CallbackContext context);
         void OnAttack(InputAction.CallbackContext context);
+        void OnInventory(InputAction.CallbackContext context);
     }
 }

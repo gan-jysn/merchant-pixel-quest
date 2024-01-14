@@ -6,6 +6,7 @@ using UnityEngine;
 [RequireComponent(typeof(Rigidbody2D))]
 public class MovementController : MonoBehaviour {
     [SerializeField] bool isMovementEnabled = true;
+    [SerializeField] bool isAttackEnabled = false;
     [SerializeField] float defaultMovementSpeed = 5f;
     [SerializeField] float runningMovementSpeed = 7.5f;
 
@@ -25,6 +26,7 @@ public class MovementController : MonoBehaviour {
     #region Events
     public event Action<Direction> OnSetLastDirection;
     public event Action OnAttack;
+    public event Action<bool> OnHorizontalDirectionChanged;
     public event Action<bool> OnRunToggle;
     #endregion
 
@@ -91,8 +93,10 @@ public class MovementController : MonoBehaviour {
             }
         } else if (moveVector.y == 0) {
             if (moveVector.x > 0) {
+                OnHorizontalDirectionChanged?.Invoke(true);
                 return Direction.Right;
             } else {
+                OnHorizontalDirectionChanged?.Invoke(false);
                 return Direction.Left;
             }
         }
@@ -105,7 +109,17 @@ public class MovementController : MonoBehaviour {
     }
 
     private void Attack() {
+        if (!isActiveAndEnabled)
+            return;
+
+        DisableMovement();
         OnAttack?.Invoke();
+        StartCoroutine(DelayEnabled(0.2f));
+    }
+
+    private IEnumerator DelayEnabled(float delay) {
+        yield return new WaitForSeconds(delay);
+        EnableMovement();
     }
 
     private void OnRunEnabled() {

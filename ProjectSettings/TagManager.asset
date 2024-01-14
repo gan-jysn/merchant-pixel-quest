@@ -54,7 +54,7 @@ TagManager:
   - name: Buildings
     uniqueID: 1049044161
     locked: 0
-  - name: Interactables
+  - name: Decorations
     uniqueID: 2723744655
     locked: 0
   - name: Player

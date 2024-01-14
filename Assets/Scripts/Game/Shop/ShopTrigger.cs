@@ -5,12 +5,20 @@ using UnityEngine;
 
 [RequireComponent(typeof(Collider2D))]
 public class ShopTrigger : MonoBehaviour {
-
     public event Action OnPlayerEntered;
 
+    private bool isTriggered = false;
+
     private void OnTriggerEnter2D(Collider2D collision) {
-        if (CompareTag("Player")) {
+        if (collision.CompareTag("Player") && !isTriggered) {
             OnPlayerEntered?.Invoke();
+            isTriggered = true;
+            StartCoroutine(TriggerTimer());
         }
+    }
+
+    private IEnumerator TriggerTimer() {
+        yield return new WaitForSeconds(0.5f);
+        isTriggered = false;
     }
 }

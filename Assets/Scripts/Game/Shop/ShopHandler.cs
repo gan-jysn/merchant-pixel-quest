@@ -8,6 +8,7 @@ public class ShopHandler : MonoBehaviour {
     [SerializeField] InventoryHandler inventoryHandler;
     [SerializeField] UI_Shop shopUI;
     [SerializeField] Shopkeeper shopKeeper;
+    [SerializeField] CameraFocus cameraFocusType;
 
     [Header("Position References")]
     [SerializeField] ShopTrigger interiorTrigger;
@@ -23,12 +24,18 @@ public class ShopHandler : MonoBehaviour {
     public int ShopInventorySize { get { return shopInventory.Items.Count; } }
     public List<ItemSO> ShopInventory { get { return shopInventory.Items; } }
 
+    private GameObject playerRef;
+
     #region Events
     public event Action OnShopMadeSale; //Trigger when Shop made a sale
     public event Action OnShopReceiveNewItem;   //Trigger when Player sold an Item
     #endregion
 
     private void Start() {
+        if (inventoryHandler != null) {
+            playerRef = inventoryHandler.gameObject;
+        }
+
         AddEventCallbacks();
     }
 
@@ -40,12 +47,43 @@ public class ShopHandler : MonoBehaviour {
         if (shopKeeper != null) {
             shopKeeper.OnInteract += OpenShop;
         }
+
+        exteriorTrigger.OnPlayerEntered += EnterShop;
+        interiorTrigger.OnPlayerEntered += ExitShop;
     }
 
     private void RemoveEventCallbacks() {
         if (shopKeeper != null) {
             shopKeeper.OnInteract -= OpenShop;
         }
+
+        exteriorTrigger.OnPlayerEntered -= EnterShop;
+        interiorTrigger.OnPlayerEntered -= ExitShop;
+    }
+
+    private void EnterShop() {
+        StartCoroutine(DelayedAction(() => {
+            if (playerRef != null) {
+                playerRef.transform.position = shopInteriorSpawn.transform.position;
+                //Add CameraHandler Call to Switch Active Virtual Camera via ShopType Enum
+                CameraHandler.Instance.SetCameraFocus(cameraFocusType);
+            }
+        }));
+    }
+
+    private void ExitShop() {
+        StartCoroutine(DelayedAction(() => {
+            playerRef.transform.position = shopExteriorSpawn.transform.position;
+            //Add CameraHandler Call to Switch Active Virtual Camera via ShopType Enum
+            CameraHandler.Instance.SetCameraFocus(CameraFocus.PlayerFocus);
+        }));
+    }
+
+    private IEnumerator DelayedAction(Action action) {
+        InputManager.Instance.InputActions.Game.Disable();
+        action?.Invoke();
+        yield return new WaitForSeconds(0.5f);
+        InputManager.Instance.InputActions.Game.Enable();
     }
 
     public ItemSO GetShopItemViaID(int id) {

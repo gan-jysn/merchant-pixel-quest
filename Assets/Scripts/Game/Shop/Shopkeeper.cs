@@ -8,11 +8,13 @@ public class Shopkeeper : MonoBehaviour, IInteractable {
 
     public event Action OnInteract;
 
+    private int spriteTypeIndex = 0;
     private Animator animator;
 
     private void Start() {
         animator = GetComponent<Animator>();
-        animator.SetInteger("SpriteType", (int) type);
+        spriteTypeIndex = (int) type;
+        animator.SetInteger("SpriteType", spriteTypeIndex);
     }
 
     public void Interact() {

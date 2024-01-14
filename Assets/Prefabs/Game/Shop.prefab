@@ -115,6 +115,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: af802675ad21e864ca212d7a024cbaad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  type: 0
 --- !u!95 &5221452312677253402
 Animator:
   serializedVersion: 4
@@ -185,7 +186,7 @@ MonoBehaviour:
   shopInventory: {fileID: 11400000, guid: 522f08e3060dcd344b6ecea447dc0f23, type: 2}
   inventoryHandler: {fileID: 0}
   shopUI: {fileID: 0}
-  shopKeeper: {fileID: 0}
+  shopKeeper: {fileID: 7700430402546628298}
   interiorTrigger: {fileID: 0}
   exteriorTrigger: {fileID: 0}
   shopInteriorSpawn: {fileID: 8869121490874690425}

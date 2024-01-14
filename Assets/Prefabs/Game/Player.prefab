@@ -15,7 +15,6 @@ GameObject:
   - component: {fileID: 1104909620349190261}
   - component: {fileID: 7768484839601538035}
   - component: {fileID: 2754377393314790170}
-  - component: {fileID: 3403091911569181296}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -140,20 +139,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   raycastDistance: 50
   movementController: {fileID: 1104909620349190260}
---- !u!114 &3403091911569181296
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1104909620349190256}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e2d6ed93d96da514c9658131724723dd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  hp: 0
-  maxHP: 60
 --- !u!1 &1104909621782965930
 GameObject:
   m_ObjectHideFlags: 0

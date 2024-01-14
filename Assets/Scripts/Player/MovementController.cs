@@ -23,6 +23,8 @@ public class MovementController : MonoBehaviour {
     public Vector2 MoveVector { get { return moveVector; } }
     public Direction CurrentDirection { get { return currentDirection; } }
 
+    public bool IsAttackEnabled { get { return isAttackEnabled; } set { isAttackEnabled = value; } }
+
     #region Events
     public event Action<Direction> OnSetLastDirection;
     public event Action OnAttack;
@@ -109,7 +111,7 @@ public class MovementController : MonoBehaviour {
     }
 
     private void Attack() {
-        if (!isActiveAndEnabled)
+        if (!isAttackEnabled)
             return;
 
         DisableMovement();

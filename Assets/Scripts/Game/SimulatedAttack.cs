@@ -6,6 +6,7 @@ using UnityEngine;
 public class SimulatedAttack : MonoBehaviour {
     [SerializeField] MovementController controller;
     [SerializeField] AttackDir attackDirection;
+    [SerializeField] float fixedDamage = 20f;
     
     Collider2D attackHitbox;
     SpriteRenderer spriteRenderer;
@@ -23,6 +24,7 @@ public class SimulatedAttack : MonoBehaviour {
 
     public void Attack() {
         animator.SetTrigger("Attack");
+        SoundManager.Instance.PlayAttackSFX();
         switch (attackDirection) {
             case AttackDir.Left:
                 transform.localPosition = new Vector3(-rightOffset.x, rightOffset.y);
@@ -31,6 +33,14 @@ public class SimulatedAttack : MonoBehaviour {
                 transform.localPosition = rightOffset;
                 break;
         }
+    }
+
+    public void EnableAttack() {
+        controller.IsAttackEnabled = true;
+    }
+
+    public void DisableAttack() {
+        controller.IsAttackEnabled = false;
     }
 
     private void UpdateDirection(bool dir) {
@@ -43,6 +53,12 @@ public class SimulatedAttack : MonoBehaviour {
             case AttackDir.Left:
                 spriteRenderer.flipX = true;
                 break;
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision) {
+        if (collision.CompareTag("Enemy")) {
+            collision.GetComponent<ITakeDamage>().TakeDamage(fixedDamage);
         }
     }
 }

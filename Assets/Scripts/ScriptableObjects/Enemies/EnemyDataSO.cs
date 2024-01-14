@@ -2,9 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(menuName = "ScriptableObjects/EnemyData")]
+[CreateAssetMenu(menuName = "ScriptableObjects/Enemy/EnemyData")]
 public class EnemyDataSO : ScriptableObject {
-    public int Health;
+    public int ID;
+    public float Health;
     public string Name;
     public List<ItemDropRate> ItemDrops = new List<ItemDropRate>();
 }

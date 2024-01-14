@@ -20,6 +20,7 @@ public class SoundManager : SingletonPersistent<SoundManager> {
     [SerializeField, FoldoutGroup("Audio Clips", Expanded = false)] AudioClip buttonSFX;
     [SerializeField, FoldoutGroup("Audio Clips", Expanded = false)] AudioClip titleBGM;
     [SerializeField, FoldoutGroup("Audio Clips", Expanded = false)] AudioClip gameBGM;
+    [SerializeField, FoldoutGroup("Audio Clips", Expanded = false)] AudioClip attackSFX;
     
     [SerializeField, HideInInspector] List<GameObject> sourcePool = new List<GameObject>();
 
@@ -139,6 +140,10 @@ public class SoundManager : SingletonPersistent<SoundManager> {
     [Button]
     public void PlayBtnSFX() {
         PlaySFX(buttonSFX);
+    }
+
+    public void PlayAttackSFX() {
+        PlaySFX(attackSFX);
     }
 }
 

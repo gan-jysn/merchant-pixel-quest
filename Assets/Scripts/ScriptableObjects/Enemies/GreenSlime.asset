@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 57a4398963a8c504bb913ca0f75547a2, type: 3}
+  m_Name: GreenSlime
+  m_EditorClassIdentifier: 
+  ID: 0
+  Health: 20
+  Name: Green Slime
+  ItemDrops:
+  - ItemPrefab: {fileID: 14521703451357561, guid: 4ae0fcf7058159948806991169bc1aaf, type: 3}
+    DropPercentage: 70
+  - ItemPrefab: {fileID: 2290977230695338971, guid: 664559bdec659304aa64e2180004dbba, type: 3}
+    DropPercentage: 25
+  - ItemPrefab: {fileID: 5478484923211200379, guid: 76447d25a7f502e409dc372a4ec76567, type: 3}
+    DropPercentage: 5

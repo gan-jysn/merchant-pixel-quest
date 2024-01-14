@@ -5,6 +5,7 @@ using UnityEngine;
 
 public abstract class Enemy : MonoBehaviour, ITakeDamage {
     [SerializeField] EnemyDataSO data;
+    [SerializeField] Animator smokeAnimator;
 
     private float health;
 
@@ -39,7 +40,14 @@ public abstract class Enemy : MonoBehaviour, ITakeDamage {
     }
 
     private void SpawnDrops() {
+        smokeAnimator.gameObject.SetActive(true);
+        smokeAnimator.SetTrigger("Pop");
 
+        StartCoroutine(DelayDestroy());
+    }
+
+    private IEnumerator DelayDestroy() {
+        yield return new WaitForSeconds(1f);
         Destroy(gameObject);
     }
 }

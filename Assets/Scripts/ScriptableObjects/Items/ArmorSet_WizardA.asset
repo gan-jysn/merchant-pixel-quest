@@ -10,14 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e2181738e06abc847969c1593eb7839f, type: 3}
-  m_Name: ArmorSet_Iron
+  m_Name: ArmorSet_WizardA
   m_EditorClassIdentifier: 
-  ItemID: 9
-  ItemName: Iron Armor Set
-  Description: A set of armor made out of Iron.
-  Value: 300
+  ItemID: 13
+  ItemName: Clothing Set A
+  Description: A set of clothing made out of comfortable fabric.
+  Value: 500
   Type: 0
-  Icon: {fileID: -1280368107, guid: 236a07dda91131c4990494c1c821b051, type: 3}
+  Icon: {fileID: 870518840, guid: 3c2c51abf5214cb46a91361d55732122, type: 3}
   EquipType: 1
-  SpriteSheet: {fileID: -1788668496, guid: 236a07dda91131c4990494c1c821b051, type: 3}
-  AnimController: {fileID: 9100000, guid: cde5e4faf0dcea64492fdb72f1667037, type: 2}
+  SpriteSheet: {fileID: -503607929, guid: 3c2c51abf5214cb46a91361d55732122, type: 3}
+  AnimController: {fileID: 9100000, guid: ffff25710b57a994fa9f37b88df11cc3, type: 2}

@@ -15,3 +15,7 @@ MonoBehaviour:
   currency: 2000
   Items:
   - {fileID: 11400000, guid: 0dff5cb0cf8c4d54eb1abcf183181be3, type: 2}
+  - {fileID: 11400000, guid: a2ada611d3fbfcd40a2c8ac0f8f27e61, type: 2}
+  - {fileID: 11400000, guid: 9fafcc6bbcec16c42be252027cc34c1e, type: 2}
+  - {fileID: 11400000, guid: b7adbe08bb9e47b4fb60fff9f14c487f, type: 2}
+  - {fileID: 11400000, guid: 44af78035629e814a90398238811aeff, type: 2}

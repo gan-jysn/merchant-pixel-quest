@@ -106,6 +106,11 @@ public class ShopHandler : MonoBehaviour {
         return inventoryHandler.TryBuyItem(item);
     }
 
+    public bool TrySellItem() {
+        ItemSO item = inventoryHandler.GetPlayerItemViaID(shopUI.ActiveSellItemID);
+        return shopInventory.TryDeductCurrency(item.Value);
+    }
+
     public void BuyItem() {
         ItemSO item = shopInventory.GetItemViaID(shopUI.ActiveBuyItemID);
         bool isPurchased = inventoryHandler.TryBuyItem(item);
@@ -114,13 +119,22 @@ public class ShopHandler : MonoBehaviour {
             shopInventory.AddCurrency(item.Value);
             shopInventory.RemoveItem(item);
             OnShopMadeSale?.Invoke();
+        } else {
+            SoundManager.Instance.PlayCanceledSFX();
         }
     }
 
     public void SellItem() {
         ItemSO item = inventoryHandler.GetPlayerItemViaID(shopUI.ActiveSellItemID);
-        shopInventory.AddItem(item);
-        inventoryHandler.SellItem(item);
-        OnShopReceiveNewItem?.Invoke();
+        bool isSellable = TrySellItem();
+        if (isSellable) {
+            SoundManager.Instance.PlayPurchaseSFX();
+            shopInventory.AddItem(item);
+            shopInventory.DeductCurrency(item.Value);
+            inventoryHandler.SellItem(item);
+            OnShopReceiveNewItem?.Invoke();
+        } else {
+            SoundManager.Instance.PlayCanceledSFX();
+        }
     }
 }

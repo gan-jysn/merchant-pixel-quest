@@ -77,6 +77,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 30603af6c78b0884d9daad917d7aaf1e, type: 3}
+--- !u!95 &3753657884290277386 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 3355389060137498539, guid: 30603af6c78b0884d9daad917d7aaf1e, type: 3}
+  m_PrefabInstance: {fileID: 1911522301578139553}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &8079170701657679056 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7681431865772864369, guid: 30603af6c78b0884d9daad917d7aaf1e, type: 3}
@@ -95,3 +100,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   data: {fileID: 11400000, guid: 1318b4ba783276e43ac2554edcf3989a, type: 2}
+  smokeAnimator: {fileID: 3753657884290277386}

@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public abstract class Enemy : MonoBehaviour, ITakeDamage {
     [SerializeField] EnemyDataSO data;
@@ -40,14 +41,15 @@ public abstract class Enemy : MonoBehaviour, ITakeDamage {
     }
 
     private void SpawnDrops() {
+        //Add Commulative Probability Formula
+        int dropIndex = Random.Range(0, data.ItemDrops.Count);
+        GameObject obj = Instantiate(data.ItemDrops[dropIndex].ItemPrefab, transform.position, Quaternion.identity, transform.parent);
+
         smokeAnimator.gameObject.SetActive(true);
         smokeAnimator.SetTrigger("Pop");
-
-        StartCoroutine(DelayDestroy());
     }
 
-    private IEnumerator DelayDestroy() {
-        yield return new WaitForSeconds(1f);
+    public void DestroyObj() {
         Destroy(gameObject);
     }
 }

@@ -3,5 +3,5 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class WildPig : Enemy {
-    
+    //Set Unnatural Behaviour Here
 }

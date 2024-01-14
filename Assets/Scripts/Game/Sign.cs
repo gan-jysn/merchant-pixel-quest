@@ -4,9 +4,20 @@ using UnityEngine;
 
 public class Sign : MonoBehaviour, IInteractable {
     [SerializeField] SignSO signData;
+    [SerializeField] GameObject interactableNotice;
     [SerializeField] bool isInteractable = false;
 
-    public bool IsInteractable { get { return isInteractable; } set { isInteractable = value; } }
+    public bool IsInteractable { 
+        get { 
+            return isInteractable; 
+        } 
+        set { 
+            isInteractable = value;
+            if (interactableNotice != null) {
+                interactableNotice.SetActive(value);
+            }
+        } 
+    }
 
     public void Interact() {
         if (!isInteractable)

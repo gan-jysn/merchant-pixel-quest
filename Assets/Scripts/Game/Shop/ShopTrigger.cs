@@ -21,6 +21,7 @@ public class ShopTrigger : MonoBehaviour {
     private IEnumerator TriggerTimer() {
         if (doorAnimator != null) {
             doorAnimator.SetTrigger("Open");
+            SoundManager.Instance.PlayEntrySFX();
             yield return new WaitForSeconds(0.3f);
         }
 

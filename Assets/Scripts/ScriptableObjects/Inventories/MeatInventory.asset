@@ -13,4 +13,10 @@ MonoBehaviour:
   m_Name: MeatInventory
   m_EditorClassIdentifier: 
   currency: 2000
-  Items: []
+  Items:
+  - {fileID: 11400000, guid: 6df39e32b00a9644583e58397d3201f0, type: 2}
+  - {fileID: 11400000, guid: 6df39e32b00a9644583e58397d3201f0, type: 2}
+  - {fileID: 11400000, guid: 6df39e32b00a9644583e58397d3201f0, type: 2}
+  - {fileID: 11400000, guid: c208c933db1708b47bc4bcf21e0b6b8b, type: 2}
+  - {fileID: 11400000, guid: c208c933db1708b47bc4bcf21e0b6b8b, type: 2}
+  - {fileID: 11400000, guid: a06bd9854f678a249805ecb6a5baf15e, type: 2}

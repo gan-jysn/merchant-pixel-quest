@@ -101,10 +101,16 @@ public class ShopHandler : MonoBehaviour {
         }
     }
 
+    public bool TryBuyItem() {
+        ItemSO item = shopInventory.GetItemViaID(shopUI.ActiveBuyItemID);
+        return inventoryHandler.TryBuyItem(item);
+    }
+
     public void BuyItem() {
         ItemSO item = shopInventory.GetItemViaID(shopUI.ActiveBuyItemID);
         bool isPurchased = inventoryHandler.TryBuyItem(item);
         if (isPurchased) {
+            SoundManager.Instance.PlayPurchaseSFX();
             shopInventory.AddCurrency(item.Value);
             shopInventory.RemoveItem(item);
             OnShopMadeSale?.Invoke();

@@ -13,4 +13,11 @@ MonoBehaviour:
   m_Name: PotionInvetory
   m_EditorClassIdentifier: 
   currency: 2000
-  Items: []
+  Items:
+  - {fileID: 11400000, guid: 74c0112009a3b7b4f8c429e1970a8bda, type: 2}
+  - {fileID: 11400000, guid: 74c0112009a3b7b4f8c429e1970a8bda, type: 2}
+  - {fileID: 11400000, guid: 74c0112009a3b7b4f8c429e1970a8bda, type: 2}
+  - {fileID: 11400000, guid: 74c0112009a3b7b4f8c429e1970a8bda, type: 2}
+  - {fileID: 11400000, guid: 71b4908a0a724ab42a34fceb8740c78f, type: 2}
+  - {fileID: 11400000, guid: 71b4908a0a724ab42a34fceb8740c78f, type: 2}
+  - {fileID: 11400000, guid: 3114fb9940674a9429b551fe73f12e22, type: 2}

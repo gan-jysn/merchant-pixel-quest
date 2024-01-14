@@ -21,6 +21,9 @@ public class SoundManager : SingletonPersistent<SoundManager> {
     [SerializeField, FoldoutGroup("Audio Clips", Expanded = false)] AudioClip titleBGM;
     [SerializeField, FoldoutGroup("Audio Clips", Expanded = false)] AudioClip gameBGM;
     [SerializeField, FoldoutGroup("Audio Clips", Expanded = false)] AudioClip attackSFX;
+    [SerializeField, FoldoutGroup("Audio Clips", Expanded = false)] AudioClip purchaseSFX;
+    [SerializeField, FoldoutGroup("Audio Clips", Expanded = false)] AudioClip shopEntrySFX;
+    [SerializeField, FoldoutGroup("Audio Clips", Expanded = false)] AudioClip transactionCanceledSFX;
     
     [SerializeField, HideInInspector] List<GameObject> sourcePool = new List<GameObject>();
 
@@ -142,8 +145,24 @@ public class SoundManager : SingletonPersistent<SoundManager> {
         PlaySFX(buttonSFX);
     }
 
+    [Button]
     public void PlayAttackSFX() {
         PlaySFX(attackSFX);
+    }
+
+    [Button]
+    public void PlayPurchaseSFX() {
+        PlaySFX(purchaseSFX);
+    }
+
+    [Button]
+    public void PlayEntrySFX() {
+        PlaySFX(shopEntrySFX);
+    }
+
+    [Button]
+    public void PlayCanceledSFX() {
+        PlaySFX(transactionCanceledSFX);
     }
 }
 

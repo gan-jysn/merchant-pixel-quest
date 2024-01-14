@@ -180,8 +180,12 @@ MonoBehaviour:
   musicAudioSource: {fileID: 5305889223582898604}
   audioSourcePrefab: {fileID: 6369485341586713723, guid: 598a0c277491a314e856f09369ec782e, type: 3}
   buttonSFX: {fileID: 8300000, guid: 24d73765699ce3e46bb23cabc3a46494, type: 3}
-  titleBGM: {fileID: 0}
-  gameBGM: {fileID: 0}
+  titleBGM: {fileID: 8300000, guid: 60f344498120bf24cbff08d4b3a47512, type: 3}
+  gameBGM: {fileID: 8300000, guid: e36d6616b0dc39a46af685befb7aa759, type: 3}
+  attackSFX: {fileID: 8300000, guid: 404034de93abcee489ae87800fd7daa7, type: 3}
+  purchaseSFX: {fileID: 8300000, guid: 70ced929408174b45902f65368eb9d87, type: 3}
+  shopEntrySFX: {fileID: 8300000, guid: 69d89461d0a40a14bb226887f0b3191e, type: 3}
+  transactionCanceledSFX: {fileID: 8300000, guid: 168357023b391b14f81fdfd6796c04c2, type: 3}
   sourcePool:
   - {fileID: 5221612559541019835}
 --- !u!1001 &1158007703486613696

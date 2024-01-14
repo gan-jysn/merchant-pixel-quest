@@ -36,6 +36,8 @@ public class UI_Shop : UI_Popup {
     private int activeBuyItemID;
     private int activeSellItemID;
     private bool isShopActive = false;
+    private bool isBuying = false;
+    private bool isSelling = false;
 
     public int ActiveBuyItemID { get { return activeBuyItemID; } }
     public int ActiveSellItemID { get { return activeSellItemID; } }
@@ -236,22 +238,36 @@ public class UI_Shop : UI_Popup {
     }
 
     public void BuyActiveItem() {
-        shopHandler.BuyItem();
-        SoundManager.Instance.PlayBtnSFX();
-        StartCoroutine(DelayAction(() => {
-            buyBtn.interactable = true;
-            ClosePanel();
-        }));
+        if (isBuying)
+            return;
+
+        isBuying = true;
+        bool isPurchasable = shopHandler.TryBuyItem();
+        if (isPurchasable) {
+            shopHandler.BuyItem();
+            SoundManager.Instance.PlayBtnSFX();
+            StartCoroutine(DelayAction(() => {
+                isBuying = false;
+                ClosePanel();
+            }));
+        } else {
+            isBuying = false;
+            SoundManager.Instance.PlayCanceledSFX();
+            Debug.Log("Unable to Complete Transaction");
+        }
     }
 
     public void SellActiveItem() {
+        if (isSelling)
+            return;
+
+        isSelling = true;
         shopHandler.SellItem();
         SoundManager.Instance.PlayBtnSFX();
         StartCoroutine(DelayAction(() => {
-            sellBtn.interactable = true;
+            isSelling = false;
             ClosePanel();
         }));
-
     }
 
     private IEnumerator DelayAction(Action action) {

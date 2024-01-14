@@ -13,5 +13,7 @@ MonoBehaviour:
   m_Name: AreaSO_SereneForest
   m_EditorClassIdentifier: 
   AreaName: Serene Forest
-  MaxEnemiesInArea: 4
-  EnemyTypes: []
+  MaxEnemiesInArea: 3
+  EnemyTypes:
+  - {fileID: 8079170701657679056, guid: cadce69b12ad4be44a593bcf734210bf, type: 3}
+  SpawnPoints: []

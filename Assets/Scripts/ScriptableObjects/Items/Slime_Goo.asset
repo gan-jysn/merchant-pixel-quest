@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8df71d6ca8c0c614e99ffdec747204ec, type: 3}
   m_Name: Slime_Goo
   m_EditorClassIdentifier: 
-  ItemID: 0
+  ItemID: 1
   ItemName: Slime Goo
   Description: A part of a Slime.
   Value: 50

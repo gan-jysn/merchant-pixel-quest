@@ -20,7 +20,7 @@ public abstract class Enemy : MonoBehaviour, ITakeDamage {
             }
         }
     }
-
+    
     #region Events
     public event Action OnEnemyDeath;
     #endregion
@@ -30,17 +30,12 @@ public abstract class Enemy : MonoBehaviour, ITakeDamage {
             health = data.Health;
         }
 
-        OnEnemyDeath += ResetToPool;
         OnEnemyDeath += SpawnDrops;
     }
 
     public void TakeDamage(float damage) {
         Health -= damage;
         Debug.Log(gameObject.name + " received " + damage.ToString() + " damage.");
-    }
-
-    public void ResetToPool() {
-
     }
 
     private void SpawnDrops() {

@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e2181738e06abc847969c1593eb7839f, type: 3}
   m_Name: ArmorSet_Iron
   m_EditorClassIdentifier: 
-  ItemID: 0
+  ItemID: 9
   ItemName: Iron Armor Set
   Description: A set of armor made out of Iron.
   Value: 100

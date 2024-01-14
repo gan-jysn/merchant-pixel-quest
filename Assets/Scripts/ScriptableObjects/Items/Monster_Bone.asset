@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8df71d6ca8c0c614e99ffdec747204ec, type: 3}
+  m_Name: Monster_Bone
+  m_EditorClassIdentifier: 
+  ItemID: 6
+  ItemName: Monster Bone
+  Description: A hard bone extracted from an unknown beast.
+  Value: 50
+  Type: 2
+  Icon: {fileID: 792783795, guid: 1ba272aae529364468e21058d950455a, type: 3}

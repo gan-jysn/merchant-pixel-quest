@@ -8,14 +8,19 @@ public class TrophyItem : MonoBehaviour {
     [SerializeField] TrophyItemSO itemData;
 
     SpriteRenderer spriteRenderer;
-    Collider2D collider;
 
     private void Start() {
         spriteRenderer = GetComponent<SpriteRenderer>();
-        collider = GetComponent<Collider2D>();
 
         spriteRenderer.sprite = itemData.Icon;
     }
 
+    private void OnTriggerEnter2D(Collider2D collision) {
+        if (collision.CompareTag("Player")) {
+            InventoryHandler inventory = collision.GetComponent<InventoryHandler>();
+            inventory.StoreItem(itemData);
 
+            Destroy(gameObject);
+        }
+    }
 }

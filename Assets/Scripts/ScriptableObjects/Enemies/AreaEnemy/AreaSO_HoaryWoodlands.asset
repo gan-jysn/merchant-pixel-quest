@@ -13,5 +13,8 @@ MonoBehaviour:
   m_Name: AreaSO_HoaryWoodlands
   m_EditorClassIdentifier: 
   AreaName: Hoary Woodlands
-  MaxEnemiesInArea: 6
-  EnemyTypes: []
+  MaxEnemiesInArea: 3
+  EnemyTypes:
+  - {fileID: 8079170701657679056, guid: d028ee954eb2ae040a0e71614e832ec0, type: 3}
+  - {fileID: 8079170701657679056, guid: 804254d5622739d49928a5ce3f00c839, type: 3}
+  SpawnPoints: []

@@ -15,4 +15,10 @@ MonoBehaviour:
   ID: 2
   Health: 20
   Name: Wild Pig
-  ItemDrops: []
+  ItemDrops:
+  - ItemPrefab: {fileID: 7681291283295564766, guid: 6ab5aa664b7b93c49bf683ae253684e8, type: 3}
+    DropPercentage: 60
+  - ItemPrefab: {fileID: 6691415617030811551, guid: ee7f52186530422439bf944e5e35221b, type: 3}
+    DropPercentage: 30
+  - ItemPrefab: {fileID: 8784783767489889273, guid: ecac8575d0fa6744bb586f4a4f13b319, type: 3}
+    DropPercentage: 10

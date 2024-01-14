@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 57a4398963a8c504bb913ca0f75547a2, type: 3}
+  m_Name: UnknownBeast
+  m_EditorClassIdentifier: 
+  ID: 3
+  Health: 80
+  Name: Unknown Beast
+  ItemDrops:
+  - ItemPrefab: {fileID: 247541522065461617, guid: 3cbdd4d004c71ba4e86b86b46dc027fb, type: 3}
+    DropPercentage: 70
+  - ItemPrefab: {fileID: 1418104310936310777, guid: 14d1e068e7d720348b6b7c75ba20ee37, type: 3}
+    DropPercentage: 25
+  - ItemPrefab: {fileID: 4858617016100032053, guid: 4a76c1c5274d0684ba06a0d9cb91186a, type: 3}
+    DropPercentage: 5

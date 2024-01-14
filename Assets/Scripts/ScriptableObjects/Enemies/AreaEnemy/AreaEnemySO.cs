@@ -7,4 +7,5 @@ public class AreaEnemySO : ScriptableObject {
     public string AreaName;
     public int MaxEnemiesInArea;
     public List<GameObject> EnemyTypes = new List<GameObject>();
+    public List<Transform> SpawnPoints = new List<Transform>();
 }

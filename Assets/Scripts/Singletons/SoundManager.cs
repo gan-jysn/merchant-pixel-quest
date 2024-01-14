@@ -129,6 +129,12 @@ public class SoundManager : SingletonPersistent<SoundManager> {
         return freeSource;
     }
 
+    public void StopMusic() {
+        if (musicAudioSource != null) {
+            musicAudioSource.Stop();
+        }
+    }
+
     //Temporary
     [Button]
     public void PlayTitleBGM() {

@@ -37,6 +37,7 @@ public class InventoryHandler : MonoBehaviour {
                     break;
                 case false:
                     if (!isAccessible) { Debug.Log("Inventory cannot be accessed at this time."); return; }
+                    inventoryUI.UpdateInventory();
                     inventoryUI.OpenPanel();
                     break;
             }

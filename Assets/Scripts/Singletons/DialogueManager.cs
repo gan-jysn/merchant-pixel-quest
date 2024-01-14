@@ -106,6 +106,7 @@ public class DialogueManager : Singleton<DialogueManager> {
     }
 
     private IEnumerator TypeText() {
+        yield return new WaitForSeconds(0.2f);
         TMP_TextInfo txtInfo = dialogueTxt.textInfo;
 
         while (visibleCharIndex < (txtInfo.characterCount + 1)) {

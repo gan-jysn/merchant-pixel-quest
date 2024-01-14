@@ -47,6 +47,12 @@ public class UI_Settings : UI_Popup {
 
     private void ToggleMusic() {
         SoundManager.Instance.IsMusicEnabled = !toggleMusic.isOn;
+
+        if (!SoundManager.Instance.IsMusicEnabled) {
+            SoundManager.Instance.StopMusic();
+        } else {
+            SoundManager.Instance.PlayGameBGM();
+        }
     }
 
     private void AdjustAudioSlider() {

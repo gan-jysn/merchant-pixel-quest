@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -9,8 +10,13 @@ public class InventorySO : ScriptableObject {
 
     public int Currency { get { return currency; } protected set { } }
 
+    #region Events
+    public event Action OnCurrencyChanged;
+    #endregion
+
     public void AddCurrency(int amountToAdd) {
         currency += amountToAdd;
+        OnCurrencyChanged?.Invoke();
     }
 
     public bool TryDeductCurrency(int amountToDeduct) {
@@ -26,6 +32,7 @@ public class InventorySO : ScriptableObject {
     public void DeductCurrency(int amountToDeduct) {
         if (TryDeductCurrency(amountToDeduct)) {
             currency -= amountToDeduct;
+            OnCurrencyChanged?.Invoke();
         }
     }
 

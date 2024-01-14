@@ -5,6 +5,8 @@ using UnityEngine;
 public class Sign : MonoBehaviour, IInteractable {
     [SerializeField] SignSO signData;
     [SerializeField] GameObject interactableNotice;
+    [SerializeField] NoticeType noticeType;
+    [SerializeField] Animator noticeAnim;
     [SerializeField] bool isInteractable = false;
 
     public bool IsInteractable { 
@@ -15,6 +17,7 @@ public class Sign : MonoBehaviour, IInteractable {
             isInteractable = value;
             if (interactableNotice != null) {
                 interactableNotice.SetActive(value);
+                noticeAnim.SetTrigger(noticeType.ToString());
             }
         } 
     }
@@ -29,4 +32,10 @@ public class Sign : MonoBehaviour, IInteractable {
 
         DialogueManager.Instance.ShowDialogue(signData.signDescription);
     }
+}
+
+public enum NoticeType {
+    Single,
+    Double,
+    Stone
 }

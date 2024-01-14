@@ -212,6 +212,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   signData: {fileID: 0}
   interactableNotice: {fileID: 5750833061897604803}
+  noticeType: 0
+  noticeAnim: {fileID: 5981423433171996113}
   isInteractable: 0
 --- !u!1 &4386492957616381037
 GameObject:

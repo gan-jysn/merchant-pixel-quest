@@ -40,5 +40,6 @@ public abstract class Enemy : MonoBehaviour, ITakeDamage {
 
     private void SpawnDrops() {
 
+        Destroy(gameObject);
     }
 }
